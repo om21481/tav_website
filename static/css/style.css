@@ -8,6 +8,11 @@
 
 /* Layout */
 body {
+    background-image: url('https://img.freepik.com/free-photo/dna-spiral-design_1048-1990.jpg?t=st=1725999617~exp=1726003217~hmac=5817ea582d8fd71de493e5000751b3172c603188a5f10552f7377308b0ea4760&w=1380');
+    background-size: cover; 
+    background-position: center 0%; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     background-color: #f4f6f9; /* Light background for a clean look */
@@ -17,7 +22,6 @@ body {
 
 /* Header */
 .main-header {
-    background-color: #007acc; /* Professional blue for header */
     color: #fff;
     height: 100px;
     padding: 1rem;
@@ -77,7 +81,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: #007acc; /* Matching blue for footer */
+    background-color: #588157; /* Matching blue for footer */
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -310,7 +314,7 @@ form button:hover {
 
 h1 {
     text-align: center;
-    color: #007acc; /* Blue color for headings */
+    color: #dad7cd; /* Blue color for headings */
 }
 
 form {
@@ -324,6 +328,7 @@ form {
 }
 
 .plot table {
+    background-color: #fff;
     width: 100%; /* Ensure table takes up full width of container */
     border-collapse: collapse; /* Collapse borders for better styling */
     margin-top: 20px; /* Add margin for spacing */
@@ -342,6 +347,7 @@ form {
 
 .plot tr {
     height: 60px; /* Increase row height */
+    color:  black;
 }
 
 /* Improved Service Item Design */
@@ -464,15 +470,4 @@ form {
     font-size: 1.125rem;
     color: #333;
     font-family: 'Poppins', sans-serif;
-}
-
-/* Footer */
-footer {
-    background-color: #007acc;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }

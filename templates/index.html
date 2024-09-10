@@ -29,7 +29,7 @@
                 </header>
 
                 <div class="embeddings">
-                    <h1>PCA and Cosine Similarity Analysis</h1>
+                    <h1 style="color: #007acc;">PCA and Cosine Similarity Analysis</h1>
                     <div class="embeddings_form">
                         <form method="POST" action="/embeddings/">
                             {% csrf_token %}
@@ -45,11 +45,11 @@
                     {% endif %}
 
                     {% if disease_name %}
-                    <h2>Results for Disease: {{ disease_name }}</h2>
+                    <h2 style="color: aliceblue;">Results for Disease: {{ disease_name }}</h2>
 
                     {% if pca_plot_div %}
                     <div class="plot">
-                        <h2>PCA Plot</h2>
+                        <h2 style="color: aliceblue;">PCA Plot</h2>
                         <div id="pca-plot"></div>
                         <script>
                             var pca_plot_div = {{ pca_plot_div|safe }};
@@ -82,7 +82,7 @@
 
                     {% if cosine_plot_div %}
                     <div class="plot">
-                        <h2>Cosine Similarity Matrix</h2>
+                        <h2 style="color: aliceblue;">Cosine Similarity Matrix</h2>
                         <div id="cosine-plot"></div>
                         <script>
                             var cosine_plot_div = {{ cosine_plot_div|safe }};
@@ -92,12 +92,12 @@
                     {% endif %}
 
                     <div class="plot">
-                        <h2>Filter Cosine Similarities</h2>
+                        <h2 style="color: aliceblue;">Filter Cosine Similarities</h2>
                         <div class="cutoff">
                             <form method="POST" action="/embeddings/">
                                 {% csrf_token %}
                                 <input type="hidden" name="disease_name" value="{{ disease_name }}">
-                                <label for="cutoff">Set cutoff value:</label>
+                                <label style="color: #007acc;" for="cutoff">Set cutoff value:</label>
                                 <input type="number" id="cutoff" name="cutoff" step="0.01" min="0" value="{{ cutoff_value|default_if_none:'0.7' }}">
                                 <button type="submit" class="cutoff_btn">Search</button>
                             </form>
@@ -107,7 +107,7 @@
 
                     {% if cosine_similarities %}
                     <div class="plot">
-                        <h2>Cosine Similarities</h2>
+                        <h2 style="color: aliceblue;">Cosine Similarities</h2>
                         <table border="1" cellpadding="10" cellspacing="0">
                             <thead>
                                 <tr>
