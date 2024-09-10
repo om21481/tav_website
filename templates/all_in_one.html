@@ -1,4 +1,5 @@
 {%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,12 +22,55 @@
     
     <main class="container">
         <h1>All-in-One Service</h1>
+        
         <p>Perform all tasks – Download, Generate, and Analyze data – in one go!</p>
-        <!-- Add your content or form for combined actions -->
+        
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+            <div class="progress-info" id="progress-info">Starting...</div>
+        </div>
+        
     </main>
 
     <footer>
         <p>&copy; 2024 Your Company Name. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function updateProgressBar(percentage, message) {
+                const progressBar = document.getElementById('progress-bar');
+                const progressInfo = document.getElementById('progress-info');
+
+                // Update the width of the progress bar and the info message
+                progressBar.style.width = percentage + '%';
+                progressInfo.textContent = message;
+            }
+
+            // Simulate a process (e.g., Download, Generate, Analyze)
+            function simulateProcess() {
+                let percentage = 0;
+                const stages = ['Downloading...', 'Generating...', 'Analyzing...'];
+                let stageIndex = 0;
+
+                const interval = setInterval(function() {
+                    if (percentage >= 100) {
+                        clearInterval(interval);
+                        progressInfo.textContent = 'Process Complete!';
+                        return;
+                    }
+
+                    percentage += 10; // Increment progress
+                    updateProgressBar(percentage, stages[stageIndex]);
+
+                    if (percentage % 30 === 0) { // Change stage every 30%
+                        stageIndex++;
+                    }
+                }, 500); // Update every 500ms
+            }
+
+            simulateProcess(); // Start the simulation
+        });
+    </script>
 </body>
 </html>

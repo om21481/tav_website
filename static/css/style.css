@@ -343,3 +343,136 @@ form {
 .plot tr {
     height: 60px; /* Increase row height */
 }
+
+/* Improved Service Item Design */
+.service-item.distinct {
+    font-family: 'Poppins', sans-serif; /* Elegant font */
+    background-color: #ffffff; /* Clean white background */
+    border-radius: 16px; /* More pronounced rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for added depth */
+    padding: 40px; /* Generous padding for spaciousness */
+    margin: 20px auto; /* Centered with auto margin */
+    text-align: center; /* Center align text */
+    max-width: 450px; /* Increase max-width for larger cards */
+    width: 90%; /* Responsive width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    min-height: 400px; /* Set a minimum height for the card */
+}
+
+/* Card Heading */
+.service-item.distinct h3 {
+    font-size: 1.75rem; /* Larger heading size */
+    color: #007acc; /* Bold color for headings */
+    margin-bottom: 20px; /* Increased space below heading */
+    font-weight: 600; /* Semi-bold heading */
+}
+
+/* Card Text */
+.service-item.distinct p {
+    font-size: 1.125rem; /* Slightly larger text for better readability */
+    color: #333; /* Dark text color */
+    margin-bottom: 25px; /* Increased space below paragraph */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Card Button */
+.service-item.distinct a button {
+    background: #ff6600; /* Vibrant button color */
+    color: #fff; /* White text */
+    border: none;
+    border-radius: 8px; /* Rounded corners for button */
+    padding: 15px 30px; /* More padding for a prominent button */
+    font-size: 1.125rem; /* Slightly larger font size */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    transition: background 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
+    margin-top: 20px; /* Space above the button */
+}
+
+.service-item.distinct a button:hover {
+    background: #cc5200; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Progress Container */
+.progress-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #f0f4f8;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 0; /* Initial width set to 0 */
+    height: 20px;
+    background-color: #007acc; /* Blue color for the progress bar */
+    border-radius: 10px;
+    transition: width 0.4s ease; /* Smooth transition */
+}
+
+/* Progress Info */
+.progress-info {
+    margin-top: 10px;
+    font-size: 1.125rem;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+/* Main Container */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin: 20px auto; /* Center container horizontally */
+    max-width: 800px; /* Limit width */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Progress Container */
+.progress-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px; /* Space above the progress bar */
+    background-color: #f0f4f8;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 0;
+    height: 20px;
+    background-color: #007acc;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+/* Progress Info */
+.progress-info {
+    margin-top: 10px;
+    font-size: 1.125rem;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer */
+footer {
+    background-color: #007acc;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
