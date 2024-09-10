@@ -12,8 +12,6 @@ body {
     line-height: 1.6;
     background-color: #281741; /* Dark purple color for the whole page */
     color: #fff; /* White text color for contrast */
-    padding: 0;
-    margin: 0;
 }
 
 /* Header */
@@ -23,15 +21,9 @@ body {
     height: 100px;
     padding: 1rem;
     font-family: 'Ubuntu';
-    /*border: 2px solid red;*/
-}
-
-.navbar{
-    /*border: 2px solid yellow;*/
 }
 
 .navbar ul {
-    /*border: 1px solid white;*/
     list-style: none;
     padding-left: 0;
     display: flex;
@@ -41,15 +33,12 @@ body {
 .navbar ul li {
     margin-right: 30px;
     margin-top: 30px;
-    /*border: 1px solid white;*/
 }
 
 .navbar ul li a {
     color: #fff;
     font-family: 'Ubuntu';
     text-decoration: none;
-    /*font-weight: bold;*/
-    
 }
 
 .navbar ul li a:hover {
@@ -113,31 +102,26 @@ form button {
     background-color: #281741;
     color: #fff;
     border: none;
-    cursor: pointer; }
+    cursor: pointer;
+}
 
 form button:hover {
     background-color: #3c2458;
 }
 
-
-
-
-/*services*/
-
-.service-list{
+/* Services */
+.service-list {
     display: flex;
     margin-top: 40px;
-
 }
 
-.service-item{
+.service-item {
     height: 200px;
     padding: 20px;
-    font-family: 'Ubuntu',sans-serif;
-
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.service-item a button{
+.service-item a button {
     font-size: 18px;
     color: white;
     background: orangered;
@@ -151,11 +135,6 @@ form button:hover {
     margin-top: 20px;
 }
 
-
-
-/*dataDownloader*/
-
-/* Data Downloader Form Styles */
 /* Data Downloader Form Styles */
 .data_downloader {
     display: flex;
@@ -238,13 +217,15 @@ form button:hover {
     background-color: #3c2458;
     transform: scale(1.05);
 }
-/*emebeddings*/
-.emebeddings_form{
+
+/* Embeddings */
+.emebeddings_form {
     width: 100%;
-    padding:10px;
-    color:white;
+    padding: 10px;
+    color: white;
 }
-.embeddings_form .emb_btn{
+
+.embeddings_form .emb_btn {
     font-size: 18px;
     border: none;
     outline: none;
@@ -255,10 +236,9 @@ form button:hover {
     padding: 12px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-
 }
 
-.embeddings_form #disease_name{
+.embeddings_form #disease_name {
     max-width: 500px;
     width: 450px;
     outline: none;
@@ -267,10 +247,9 @@ form button:hover {
     color: #181a19;
     background: #fff;
     padding: 8px 10px;
-    
 }
 
-.cutoff.cutoff_btn{
+.cutoff.cutoff_btn {
     font-size: 18px;
     border: none;
     outline: none;
@@ -281,10 +260,9 @@ form button:hover {
     padding: 12px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-
 }
 
-.cutoff #cutoff{
+.cutoff #cutoff {
     max-width: 500px;
     width: 450px;
     outline: none;
@@ -293,41 +271,45 @@ form button:hover {
     color: #181a19;
     background: #fff;
     padding: 8px 10px;
-    
 }
-
-
 
 .emebeddings {
-            border:=10px
-            width: 90%;
-            margin: auto;
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .plot {
-            margin-bottom: 40px;
-        }
-        .error-message {
-            color: red;
-            text-align: center;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
+    border: 10px;
+    width: 90%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.plot {
+    margin-bottom: 40px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
