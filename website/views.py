@@ -9,9 +9,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import json
 import plotly
-import subprocess
+
 import zipfile
-# from data_downloader import DataDownloader
+from data import DataDownloader, DataGenerator, Analysis
 import os
 
 def home(request):
@@ -28,29 +28,19 @@ def home(request):
 #         print(f"An error occurred: {e.stderr}")
 #         return f"An error occurred while running the script: {e.stderr}"
 # # Load the data
-file_path = r"C:\Users\denma\Desktop\Repos\Alok Proj\tav_website\website\expanded_embeddings.csv"
-
-# try:
-#   df=pd.read_csv(file_path)
-# except:
-#   run_external_script()
-#   df=pd.read_csv(file_path)
-
-# #external_script_path="/content/drive/MyDrive/PLATFORM_AUG2024/compute_and_store.py"
-
-# dim_columns = [f'Dim_{i}' for i in range(1, 385)]
+file_path = "expanded_embeddings.csv"
 
 
 
 
-# def create_zip(directory_path, zip_filename):
-#     """Create a zip file from the contents of a directory."""
-#     with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_STORED) as zipf:
-#         for root, _, files in os.walk(directory_path):
-#             for file in files:
-#                 file_path = os.path.join(root, file)
-#                 arcname = os.path.relpath(file_path, directory_path)
-#                 zipf.write(file_path, arcname)
+def create_zip(directory_path, zip_filename):
+    """Create a zip file from the contents of a directory."""
+    with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_STORED) as zipf:
+        for root, _, files in os.walk(directory_path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                arcname = os.path.relpath(file_path, directory_path)
+                zipf.write(file_path, arcname)
 
 
 def index():
@@ -59,26 +49,41 @@ def index():
 def services(request):
     return render(request,'services.html')
 
+def list_directories(folder_path):
+    all_entries = os.listdir(folder_path)
+    directories = [entry for entry in all_entries if os.path.isdir(os.path.join(folder_path, entry))]
+    return directories
+
 def data_downloader(request):
     if request.method == 'POST':
-        gse_id = request.form.get('gse_id')
+        gse_id = request.POST.get('gse_id')
         
         # Use the DataDownloader class
         downloader = DataDownloader(gse_id)
-        directory_path = downloader.dataDownloader()
+        file_path = downloader.dataDownloader()
+
+        datagenerator = DataGenerator(file_path)
+        generated_path = datagenerator.dataGenerator()
+
+        folders = list_directories(generated_path)
+        folders_path = [os.path.join(generated_path, i) for i in folders]
+
+        for i in folders_path:
+            process = Analysis(i, gse_id)
+            process.process_directory()
 
         # Ensure directory path is not empty or invalid
-        if not os.path.isdir(directory_path):
-            return "Invalid directory", 400
+        # if not os.path.isdir(directory_path):
+        #     return "Invalid directory", 400
 
-        # Create a zip file of the directory contents
+        # # Create a zip file of the directory contents
         zip_filename = f"{gse_id}.zip"
-        create_zip(directory_path, zip_filename)
+        create_zip(file_path, zip_filename)
 
         # Return the zip file for download
         return send_file(zip_filename, as_attachment=True)
 
-    return render_template('data_downloader.html')
+    return render('data_downloader.html')
 
 def embeddings(request):
     search_results = None
@@ -205,7 +210,8 @@ def embeddings(request):
 
         return render(request, 'index.html', context)
 
-def data_generator():
+def data_generator(directory_path):
+    generator = DataGenerator(directory_path)
     return render('data_generator.html')
 
 def data_analyzer():
