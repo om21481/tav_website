@@ -56,8 +56,8 @@ file_path = r"C:\Users\denma\Desktop\Repos\Alok Proj\tav_website\website\expande
 def index():
     return render('index.html')
 
-def services():
-    return render('services.html')
+def services(request):
+    return render(request,'services.html')
 
 def data_downloader(request):
     if request.method == 'POST':
@@ -211,5 +211,5 @@ def data_generator():
 def data_analyzer():
     return render('data_analyzer.html')
 
-def all_in_one():
-    return render('all_in_one.html')
+def all_in_one(request):
+    return render(request, 'all_in_one.html')

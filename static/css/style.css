@@ -8,21 +8,23 @@
 
 /* Layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    background-color: #281741; /* Dark purple color for the whole page */
-    color: #fff; /* White text color for contrast */
+    background-color: #f4f6f9; /* Light background for a clean look */
+    color: #333; /* Dark text color for readability */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 /* Header */
 .main-header {
-    background-color: #281741; /* Same dark purple color for header */
+    background-color: #007acc; /* Professional blue for header */
     color: #fff;
     height: 100px;
     padding: 1rem;
     font-family: 'Ubuntu';
 }
 
+/* Navbar */
 .navbar ul {
     list-style: none;
     padding-left: 0;
@@ -39,9 +41,11 @@ body {
     color: #fff;
     font-family: 'Ubuntu';
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 .navbar ul li a:hover {
+    color: #ffcc00; /* Highlight color on hover */
     text-decoration: underline;
 }
 
@@ -49,29 +53,31 @@ body {
 .container {
     display: flex;
     margin: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Light background for content area */
+    background-color: #ffffff; /* Light background for content area */
     border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for better separation */
 }
 
 /* Sidebar */
 .sidebar {
     width: 200px;
-    background: #f0e6f6;
+    background: #f0f4f8; /* Slightly off-white for contrast */
     padding: 20px;
-    border-right: 2px solid #fff;
-    color: #281741;
+    border-right: 2px solid #dfe3e6;
+    color: #007acc; /* Matching blue color */
 }
 
 /* Main Content Area */
 .content {
     flex: 1;
     padding: 20px;
-    color: #fff; /* White text color */
+    color: #333; /* Dark text color */
+    overflow-x: auto; /* Allow horizontal scrolling for content */
 }
 
 /* Footer */
 footer {
-    background-color: #281741; /* Same dark purple color for footer */
+    background-color: #007acc; /* Matching blue for footer */
     color: #fff;
     text-align: center;
     padding: 10px;
@@ -88,43 +94,59 @@ form {
 form label {
     display: block;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 form input, form button, form textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #dfe3e6;
     border-radius: 4px;
 }
 
+/* General button styles */
 form button {
-    background-color: #281741;
+    background-color: #007acc; /* Matching blue for buttons */
     color: #fff;
     border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    width: auto; /* Adjust width based on content */
+    display: inline-block; /* Make button only as wide as its content */
 }
 
+/* Adjust hover effects */
 form button:hover {
-    background-color: #3c2458;
+    background-color: #005fa3; /* Darker blue on hover */
+    transform: scale(1.05);
 }
+
 
 /* Services */
 .service-list {
     display: flex;
     margin-top: 40px;
+    flex-wrap: wrap; /* Ensure items wrap to the next line */
 }
 
 .service-item {
     height: 200px;
     padding: 20px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    flex: 1 1 calc(33.333% - 20px); /* Responsive layout for items */
+    margin: 10px;
+    box-sizing: border-box;
 }
 
 .service-item a button {
     font-size: 18px;
-    color: white;
-    background: orangered;
+    color: #fff;
+    background: #ff6600; /* Highlight color for service buttons */
     width: fit-content;
     padding: 12px 20px;
     line-height: 17px;
@@ -133,6 +155,11 @@ form button:hover {
     border-radius: 4px;
     border: none;
     margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.service-item a button:hover {
+    background: #cc5200; /* Darker orange on hover */
 }
 
 /* Data Downloader Form Styles */
@@ -141,9 +168,10 @@ form button:hover {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: rgba(40, 23, 65, 0.7);
+    background-color: #f4f6f9; /* Light background for form */
     border-radius: 8px;
-    width: 350px;
+    width: 90%; /* Adjust width to prevent overflow */
+    max-width: 350px;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -158,7 +186,7 @@ form button:hover {
 }
 
 .dd_head h3 {
-    color: #fff;
+    color: #007acc; /* Matching blue for headings */
     font-size: 1.5rem;
 }
 
@@ -182,13 +210,13 @@ form button:hover {
 }
 
 .ui_data label {
-    color: #fff;
+    color: #007acc; /* Blue color for labels */
     font-weight: bold;
 }
 
 .ui_data input[type="text"] {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #dfe3e6;
     border-radius: 4px;
     width: 100%;
     font-size: 1rem;
@@ -196,13 +224,13 @@ form button:hover {
 }
 
 .ui_data input[type="text"]:focus {
-    border-color: #f9a825;
+    border-color: #ff6600; /* Highlight color on focus */
     outline: none;
-    box-shadow: 0 0 5px rgba(249, 168, 37, 0.7);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.7);
 }
 
 form button {
-    background-color: #281741;
+    background-color: #007acc; /* Matching blue for buttons */
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -214,23 +242,23 @@ form button {
 }
 
 form button:hover {
-    background-color: #3c2458;
+    background-color: #005fa3; /* Darker blue on hover */
     transform: scale(1.05);
 }
 
 /* Embeddings */
-.emebeddings_form {
+.embeddings_form {
     width: 100%;
     padding: 10px;
-    color: white;
+    color: #fff;
 }
 
 .embeddings_form .emb_btn {
     font-size: 18px;
     border: none;
     outline: none;
-    background: whitesmoke;
-    color: #181a19;
+    background: #ff6600; /* Highlight color for buttons */
+    color: #fff;
     border-radius: 4px;
     width: 120px;
     padding: 12px 20px;
@@ -239,12 +267,12 @@ form button:hover {
 }
 
 .embeddings_form #disease_name {
-    max-width: 500px;
-    width: 450px;
+    max-width: 100%;
+    width: 100%;
     outline: none;
-    border: none;
+    border: 1px solid #dfe3e6;
     font-size: 16px;
-    color: #181a19;
+    color: #333; /* Dark text color */
     background: #fff;
     padding: 8px 10px;
 }
@@ -253,8 +281,8 @@ form button:hover {
     font-size: 18px;
     border: none;
     outline: none;
-    background: whitesmoke;
-    color: #181a19;
+    background: #ff6600; /* Highlight color for buttons */
+    color: #fff;
     border-radius: 4px;
     width: 120px;
     padding: 12px 20px;
@@ -263,53 +291,55 @@ form button:hover {
 }
 
 .cutoff #cutoff {
-    max-width: 500px;
-    width: 450px;
+    max-width: 100%;
+    width: 100%;
     outline: none;
-    border: none;
+    border: 1px solid #dfe3e6;
     font-size: 16px;
-    color: #181a19;
+    color: #333; /* Dark text color */
     background: #fff;
     padding: 8px 10px;
 }
 
-.emebeddings {
+.embeddings {
     border: 10px;
     width: 90%;
     margin: auto;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
     text-align: center;
+    color: #007acc; /* Blue color for headings */
 }
 
 form {
     text-align: center;
     margin-bottom: 20px;
 }
-
 .plot {
     margin-bottom: 40px;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    width: 100%; /* Ensure plot container is full width */
 }
 
-.error-message {
-    color: red;
-    text-align: center;
+.plot table {
+    width: 100%; /* Ensure table takes up full width of container */
+    border-collapse: collapse; /* Collapse borders for better styling */
+    margin-top: 20px; /* Add margin for spacing */
 }
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-bottom: 20px;
+.plot th, .plot td {
+    padding: 15px; /* Increase padding for more space */
+    text-align: left; /* Align text to the left */
+    border: 1px solid #dfe3e6; /* Light border color */
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+.plot th {
+    background-color: #f4f6f9; /* Light background for header */
+    color: #007acc; /* Blue color for header text */
 }
 
-th {
-    background-color: #f2f2f2;
+.plot tr {
+    height: 60px; /* Increase row height */
 }
