@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&family=Poppins:wght@500&family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Layout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #281741; /* Dark purple color for the whole page */
+    color: #fff; /* White text color for contrast */
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+.main-header {
+    background-color: #281741; /* Same dark purple color for header */
+    color: #fff;
+    height: 100px;
+    padding: 1rem;
+    font-family: 'Ubuntu';
+    /*border: 2px solid red;*/
+}
+
+.navbar{
+    /*border: 2px solid yellow;*/
+}
+
+.navbar ul {
+    /*border: 1px solid white;*/
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar ul li {
+    margin-right: 30px;
+    margin-top: 30px;
+    /*border: 1px solid white;*/
+}
+
+.navbar ul li a {
+    color: #fff;
+    font-family: 'Ubuntu';
+    text-decoration: none;
+    /*font-weight: bold;*/
+    
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Container Layout */
+.container {
+    display: flex;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for content area */
+    border-radius: 8px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background: #f0e6f6;
+    padding: 20px;
+    border-right: 2px solid #fff;
+    color: #281741;
+}
+
+/* Main Content Area */
+.content {
+    flex: 1;
+    padding: 20px;
+    color: #fff; /* White text color */
+}
+
+/* Footer */
+footer {
+    background-color: #281741; /* Same dark purple color for footer */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Form Styles */
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input, form button, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #281741;
+    color: #fff;
+    border: none;
+    cursor: pointer; }
+
+form button:hover {
+    background-color: #3c2458;
+}
+
+
+
+
+/*services*/
+
+.service-list{
+    display: flex;
+    margin-top: 40px;
+
+}
+
+.service-item{
+    height: 200px;
+    padding: 20px;
+    font-family: 'Ubuntu',sans-serif;
+
+}
+
+.service-item a button{
+    font-size: 18px;
+    color: white;
+    background: orangered;
+    width: fit-content;
+    padding: 12px 20px;
+    line-height: 17px;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    margin-top: 20px;
+}
+
+
+
+/*dataDownloader*/
+
+/* Data Downloader Form Styles */
+/* Data Downloader Form Styles */
+.data_downloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(40, 23, 65, 0.7);
+    border-radius: 8px;
+    width: 350px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dd_form {
+    width: 100%;
+}
+
+.dd_head {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.dd_head h3 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.form_items_container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form_items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui_data {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ui_data label {
+    color: #fff;
+    font-weight: bold;
+}
+
+.ui_data input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.ui_data input[type="text"]:focus {
+    border-color: #f9a825;
+    outline: none;
+    box-shadow: 0 0 5px rgba(249, 168, 37, 0.7);
+}
+
+form button {
+    background-color: #281741;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background-color: #3c2458;
+    transform: scale(1.05);
+}
+/*emebeddings*/
+.emebeddings_form{
+    width: 100%;
+    padding:10px;
+    color:white;
+}
+.embeddings_form .emb_btn{
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: whitesmoke;
+    color: #181a19;
+    border-radius: 4px;
+    width: 120px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+}
+
+.embeddings_form #disease_name{
+    max-width: 500px;
+    width: 450px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: #181a19;
+    background: #fff;
+    padding: 8px 10px;
+    
+}
+
+.cutoff.cutoff_btn{
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background: whitesmoke;
+    color: #181a19;
+    border-radius: 4px;
+    width: 120px;
+    padding: 12px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+
+}
+
+.cutoff #cutoff{
+    max-width: 500px;
+    width: 450px;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: #181a19;
+    background: #fff;
+    padding: 8px 10px;
+    
+}
+
+
+
+.emebeddings {
+            border:=10px
+            width: 90%;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .plot {
+            margin-bottom: 40px;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }

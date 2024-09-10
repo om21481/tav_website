@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}TAV Lab{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="web-app">
+            <!-- Header -->
+            <header class="main-header">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{ url_for('services') }}">Services</a></li>
+                        <li><a href="/resources">Resources</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Main Content -->
+            <div class="data_downloader">
+                <div class="dd_form">
+                    <form action="/data_downloader" method="post">
+                        <div class="dd_head">
+                            <h3>Download Data</h3>
+                        </div>
+                        <div class="form_items_container">
+                            <div class="form_items">
+                                <div class="ui_data">
+                                    <label for="dd_userData">GSE ID:</label>
+                                    <input type="text" name="gse_id" id="dd_userData" placeholder="Enter GSE_ID..." required>
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit">Download</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Display download link if file is ready -->
+                    {% if file_name %}
+                    <div class="download_link">
+                        <p>Data is ready for download: 
+                            <a href="{{ url_for('download_file', filename=file_name) }}" download>Download {{ file_name }}</a>
+                        </p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <p>&copy; TAV LAB</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

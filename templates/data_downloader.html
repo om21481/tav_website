@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <div class="web-app">
+            <header class="main-header">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="{{url_for('services')}}">Services</a></li>
+                        <li><a href="/resources">Resources</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div class="data_downloader">
+                <div class="dd_form">
+                    <form action="/data_downloader" method="post">
+                        <h3>Download Data</h3>
+                        <label for="dd_userData">GSE ID:</label>
+                        <input type="text" name="gse_id" id="dd_userData" placeholder="Enter GSE_ID...">
+                        <button type="submit">Download</button>
+                    </form>
+                </div>
+
+                {% if zip_filename %}
+                <div class="download_link">
+                    <h4>Download the complete dataset:</h4>
+                    <a href="{{ url_for('download_zip', filename=zip_filename) }}">Download {{ zip_filename }}</a>
+                </div>
+                {% endif %}
+            </div>
+
+            <footer>
+                <p>&copy; TAV LAB</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

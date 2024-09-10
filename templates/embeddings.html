@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PCA and Cosine Similarity Analysis</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .container {
+            width: 90%;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .plot {
+            margin-bottom: 40px;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PCA and Cosine Similarity Analysis</h1>
+        <form method="POST" action="/">
+            <label for="disease_name">Enter Disease Name:</label>
+            <input type="text" id="disease_name" name="disease_name" value="{{ disease_name }}">
+            <button type="submit">Search</button>
+        </form>
+
+        {% if error_message %}
+            <p class="error-message">{{ error_message }}</p>
+        {% endif %}
+
+        {% if disease_name %}
+            <h2>Results for Disease: {{ disease_name }}</h2>
+
+            {% if pca_plot_div %}
+                <div class="plot">
+                    <h2>PCA Plot</h2>
+                    <div id="pca-plot"></div>
+                    <script>
+                        var pca_plot_div = {{ pca_plot_div|safe }};
+                        Plotly.newPlot('pca-plot', pca_plot_div.data, pca_plot_div.layout);
+                    </script>
+                </div>
+            {% endif %}
+
+            {% if scree_plot_div %}
+                <div class="plot">
+                    <h2>Scree Plot for Initial Components</h2>
+                    <div id="scree-plot"></div>
+                    <script>
+                        var scree_plot_div = {{ scree_plot_div|safe }};
+                        Plotly.newPlot('scree-plot', scree_plot_div.data, scree_plot_div.layout);
+                    </script>
+                </div>
+            {% endif %}
+
+            {% if scree_plot_div1 %}
+                <div class="plot">
+                    <h2>Scree Plot for Maximum Feasible Components</h2>
+                    <div id="scree-plot1"></div>
+                    <script>
+                        var scree_plot_div1 = {{ scree_plot_div1|safe }};
+                        Plotly.newPlot('scree-plot1', scree_plot_div1.data, scree_plot_div1.layout);
+                    </script>
+                </div>
+            {% endif %}
+
+            {% if cosine_plot_div %}
+                <div class="plot">
+                    <h2>Cosine Similarity Matrix</h2>
+                    <div id="cosine-plot"></div>
+                    <script>
+                        var cosine_plot_div = {{ cosine_plot_div|safe }};
+                        Plotly.newPlot('cosine-plot', cosine_plot_div.data, cosine_plot_div.layout);
+                    </script>
+                </div>
+            {% endif %}
+
+            <div class="plot">
+                <h2>Filter Cosine Similarities</h2>
+                <form method="POST" action="/">
+                    <input type="hidden" name="disease_name" value="{{ disease_name }}">
+                    <label for="cutoff">Set cutoff value:</label>
+                    <input type="number" id="cutoff" name="cutoff" step="0.01" min="0" value="{{ cutoff_value }}">
+                    <button type="submit">Apply</button>
+                </form>
+            </div>
+
+            {% if cosine_similarities %}
+                <div class="plot">
+                    <h2>Cosine Similarities</h2>
+                    <table border="1" cellpadding="10" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Disease 1</th>
+                                <th>GSE ID 1</th>
+                                <th>Disease 2</th>
+                                <th>GSE ID 2</th>
+                                <th>Similarity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for similarity in cosine_similarities %}
+                                <tr>
+                                    <td>{{ similarity.disease_1 }}</td>
+                                    <td>{{ similarity.gse_id_1 }}</td>
+                                    <td>{{ similarity.disease_2 }}</td>
+                                    <td>{{ similarity.gse_id_2 }}</td>
+                                    <td>{{ similarity.similarity }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+
+        {% endif %}
+    </div>
+</body>
+</html>

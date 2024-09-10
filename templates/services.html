@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+</head>
+<body>
+    
+    <div class="app-container">
+        <div class="web-app">
+    <header class="main-header">
+        <!-- <img src="{{ url_for('static', filename='images/bg.jpg') }}" alt="Description of Image" class="header-image"> -->
+         <nav class="navbar">
+             <ul>
+                 <div>   <li><a href="/">Home                </a></li>   </div>
+                 <div>   <li><a href="{{url_for('services')}}">Services    </a></li>   </div>
+                 <div>   <li><a href="/resources">Resources      </a></li>   </div>
+                 <div>   <li><a href="/about">About Us       </a></li>   </div>
+                 <div>   <li><a href="/contact">Contact Us   </a></li>   </div>
+             </ul>
+         </nav>
+     </header>
+    <!-- Updated Service options in services.html -->
+<div class="service-list">
+    <!-- Option 1: Data Downloader -->
+    <div class="service-item">
+        <h3>Data Downloader</h3>
+        <p>Download various datasets easily and efficiently.</p>
+        <a href="/data_downloader"><button>Download Data</button></a>
+    </div>
+
+    <!-- Option 2: Data Generator -->
+    <div class="service-item">
+        <h3>Data Generator</h3> <p>Generate synthetic data based on your specific requirements.</p>
+        <a href="/data_generator"><button>Generate Data</button></a>
+    </div>
+
+    <!-- Option 3: Data Analyzer -->
+
+    <div class="service-item">
+        <h3>Data Analyzer</h3>
+        <p>Analyze your data to extract meaningful insights.</p>
+        <a href="/data_analyzer"><button>Analyze Data</button></a>
+    </div>
+
+    <!-- Distinct Option: All-in-One -->
+    <div class="service-item distinct">
+        <h3>All-in-One Service</h3>
+        <p>Do all the tasks – Download, Generate, and Analyze – in one go!</p>
+        <a href="/all_in_one"><button>Perform All Actions</button></a>
+    </div>
+</div>
+
+
+
+    </div>
+  </div>
+
+</body>
+</html>
