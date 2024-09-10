@@ -28,7 +28,7 @@ def home(request):
 #         print(f"An error occurred: {e.stderr}")
 #         return f"An error occurred while running the script: {e.stderr}"
 # # Load the data
-# file_path = "/content/drive/MyDrive/PLATFORM_AUG2024/expanded_embeddings.csv"
+file_path = r"C:\Users\denma\Desktop\Repos\Alok Proj\tav_website\website\expanded_embeddings.csv"
 
 # try:
 #   df=pd.read_csv(file_path)
@@ -92,8 +92,11 @@ def embeddings(request):
     cutoff_value = None
 
     if request.method == 'POST':
-        
-        disease_name = request.form['disease_name']
+        df=pd.read_csv(file_path)
+        dim_columns = [f'Dim_{i}' for i in range(1, 385)]
+
+        disease_name = request.POST.get('disease_name')
+        print("disease name: ", disease_name)
         search_results = df[df['disease'].str.contains(disease_name, case=False, na=False)]
 
         if not search_results.empty:
@@ -138,8 +141,7 @@ def embeddings(request):
                     # Combine disease and GSE_ID for hover information
                     pca_df['disease_with_id'] = pca_df.apply(lambda row: f"{row['disease']} (GSE_ID: {row['GSE_ID']})", axis=1)
 
-                    fig_pca = px.scatter(pca_df, x='PC1', y='PC2',
-                                         color='disease_with_id', hover_name='disease_with_id', title='2D PCA Plot', width=2000, height=600)
+                    fig_pca = px.scatter(pca_df, x='PC1', y='PC2', color='disease_with_id', hover_name='disease_with_id', title='2D PCA Plot', width=2000, height=600)
                     pca_plot_div = json.dumps(fig_pca, cls=plotly.utils.PlotlyJSONEncoder)
 
                 # Create scree plot
@@ -172,7 +174,7 @@ def embeddings(request):
                 disease_names = unique_results['disease'].tolist()
                 gse_ids = unique_results['GSE_ID'].tolist()
                 cosine_similarities = []
-                cutoff_value = float(request.form['cutoff']) if 'cutoff' in request.form else 0.7
+                cutoff_value = float(request.POST.get('cutoff', 0.7))
                 for i in range(len(disease_names)):
                     for j in range(i + 1, len(disease_names)):
                         similarity_value = round(similarity_matrix[i, j], 3)
@@ -188,10 +190,20 @@ def embeddings(request):
                 # Sort cosine similarities from highest to lowest
                 cosine_similarities = sorted(cosine_similarities, key=lambda x: x['similarity'], reverse=True)
 
-    return render('index.html', disease_name=disease_name, search_results=search_results, pca_plot_div=pca_plot_div,
-                           scree_plot_div=scree_plot_div, scree_plot_div1=scree_plot_div1, cosine_plot_div=cosine_plot_div, cosine_similarities=cosine_similarities,
-                           error_message=error_message, cutoff_value=cutoff_value)
+    # return render(request, 'index.html', {disease_name=disease_name, search_results=search_results, pca_plot_div=pca_plot_div, scree_plot_div=scree_plot_div, scree_plot_div1=scree_plot_div1, cosine_plot_div=cosine_plot_div, cosine_similarities=cosine_similarities, error_message=error_message, cutoff_value=cutoff_value})
+        context = {
+        'disease_name': disease_name,
+        'search_results': search_results,
+        'pca_plot_div': pca_plot_div,
+        'scree_plot_div': scree_plot_div,
+        'scree_plot_div1': scree_plot_div1,
+        'cosine_plot_div': cosine_plot_div,
+        'cosine_similarities': cosine_similarities,
+        'error_message': error_message,
+        'cutoff_value': cutoff_value
+        }
 
+        return render(request, 'index.html', context)
 
 def data_generator():
     return render('data_generator.html')
