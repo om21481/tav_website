@@ -28,17 +28,11 @@ def home(request):
 #         print(f"An error occurred: {e.stderr}")
 #         return f"An error occurred while running the script: {e.stderr}"
 # # Load the data
-# file_path = "/content/drive/MyDrive/PLATFORM_AUG2024/expanded_embeddings.csv"
-
-# try:
-#   df=pd.read_csv(file_path)
-# except:
-#   run_external_script()
-#   df=pd.read_csv(file_path)
+file_path = "expanded_embeddings.csv"
 
 # #external_script_path="/content/drive/MyDrive/PLATFORM_AUG2024/compute_and_store.py"
 
-# dim_columns = [f'Dim_{i}' for i in range(1, 385)]
+# 
 
 
 
@@ -59,26 +53,26 @@ def index():
 def services():
     return render('services.html')
 
-def data_downloader(request):
-    if request.method == 'POST':
-        gse_id = request.form.get('gse_id')
+# def data_downloader(request):
+#     if request.method == 'POST':
+#         gse_id = request.form.get('gse_id')
         
-        # Use the DataDownloader class
-        downloader = DataDownloader(gse_id)
-        directory_path = downloader.dataDownloader()
+#         # Use the DataDownloader class
+#         downloader = DataDownloader(gse_id)
+#         directory_path = downloader.dataDownloader()
 
-        # Ensure directory path is not empty or invalid
-        if not os.path.isdir(directory_path):
-            return "Invalid directory", 400
+#         # Ensure directory path is not empty or invalid
+#         if not os.path.isdir(directory_path):
+#             return "Invalid directory", 400
 
-        # Create a zip file of the directory contents
-        zip_filename = f"{gse_id}.zip"
-        create_zip(directory_path, zip_filename)
+#         # Create a zip file of the directory contents
+#         zip_filename = f"{gse_id}.zip"
+#         create_zip(directory_path, zip_filename)
 
-        # Return the zip file for download
-        return send_file(zip_filename, as_attachment=True)
+#         # Return the zip file for download
+#         return send_file(zip_filename, as_attachment=True)
 
-    return render_template('data_downloader.html')
+#     return render('data_downloader.html')
 
 def embeddings(request):
     search_results = None
@@ -92,6 +86,8 @@ def embeddings(request):
     cutoff_value = None
 
     if request.method == 'POST':
+        df=pd.read_csv('expanded_embeddings.csv')
+        dim_columns = [f'Dim_{i}' for i in range(1, 385)]
         
         disease_name = request.form['disease_name']
         search_results = df[df['disease'].str.contains(disease_name, case=False, na=False)]
